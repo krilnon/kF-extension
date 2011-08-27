@@ -1,0 +1,11 @@
+#sidebar_container, #topAd, #fb_headerbox {
+	display: none !important;
+}
+
+.fx-banner {
+	display: none !important;
+}
+
+#content_container, #content {
+	margin-right: 0px !important;
+}

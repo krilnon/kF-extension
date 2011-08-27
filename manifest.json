@@ -12,7 +12,7 @@
 	"content_scripts": [
 		{
 			"matches": ["http://*.kirupa.com/forum/*"],
-			"css": [],
+			"css": ["kf.css"],
 			"js": ["lib/jquery-1.6.2.min.js", "kf.js"]
 		}
 	]

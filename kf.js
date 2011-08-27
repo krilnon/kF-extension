@@ -10,6 +10,7 @@ var ads = [
 ]
 
 $(init)
+setTimeout(init, 100) // temporary, until kirupa fixes the cron.php delay
 
 function init(){
 	killAds()
