@@ -1,0 +1,13 @@
+{
+	"name": "kF Extension",
+	"version": "0.1",
+	"description": "Improvements for kirupaForum.",
+	
+	"content_scripts": [
+		{
+			"matches": ["http://*.kirupa.com/forum/*"],
+			"css": [],
+			"js": ["lib/jquery-1.6.2.min.js", "kf.js"]
+		}
+	]
+}
