@@ -1,6 +1,5 @@
 var ads = [
 	function(){ // the big sidebar
-		$('#sidebar_container').remove()
 		$('#content_container')[0].style.marginRight = '0px'
 		$('#content')[0].style.marginRight = '0px'
 	},
