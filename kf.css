@@ -9,3 +9,15 @@
 #content_container, #content {
 	margin-right: 0px !important;
 }
+
+/* editor */
+
+.ace-editor {
+	position: relative;
+}
+
+.ace_invalid {
+	background-color: inherit !important;
+	color: #4ba3fe !important;
+	font-weight: bold !important;
+}

@@ -9,11 +9,12 @@ var ads = [
 	function(){ $('.fx-banner').remove() } // footer ad
 ]
 
-$(init)
+$(killAds)
 setTimeout(init, 100) // temporary, until kirupa fixes the cron.php delay
 
 function init(){
 	killAds()
+	convertEditors()
 }
 
 function killAds(){
@@ -24,4 +25,24 @@ function killAds(){
 			// if a page doesn't have one of these elements, it'll potentially throw a light error
 		}
 	}
+}
+
+// code displayed in posts is replaced with an ACE editor
+function convertEditors(){
+	var first = $('.bbcode_code').first()
+	if(first){ // if there are any .bbcode_code elements at all, replace them
+		unsandbox('lib/jquery-1.6.2.min.js')
+		unsandbox('ace-inject.js')
+		unsandbox('add-editors.js')
+	}
+}
+
+// adds some <script> tags dynamically to get around Chrome extension sandbox limitations
+function unsandbox(path){
+	$('body').append('<script type="text/javascript">(function(l) {\
+	   var res = document.createElement("SCRIPT");\
+	   res.type = "text/javascript";\
+	   res.src = l;\
+	   document.getElementsByTagName("head")[0].appendChild(res);\
+	})("'+chrome.extension.getURL(path) + '")</script>');
 }
