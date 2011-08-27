@@ -3,6 +3,12 @@
 	"version": "0.1",
 	"description": "Improvements for kirupaForum.",
 	
+	"icons": {
+		"16": "img/orange_16.png",
+		"48": "img/orange_48.png",
+		"128": "img/orange_128.png"
+	},
+	
 	"content_scripts": [
 		{
 			"matches": ["http://*.kirupa.com/forum/*"],
