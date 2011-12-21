@@ -31,11 +31,7 @@ function killAds(){
 function convertEditors(){
 	var first = $('.bbcode_code').first()
 	if(first){ // if there are any .bbcode_code elements at all, replace them
-		unsandbox('lib/jquery-1.6.2.min.js')
-		unsandbox('lib/ace/ace.js')
-		unsandbox('lib/ace/mode-javascript.js')
-		unsandbox('lib/ace/theme-textmate.js')
-		unsandbox('add-editors.js')
+		addEditors()
 	}
 }
 

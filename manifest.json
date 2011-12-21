@@ -1,6 +1,6 @@
 {
 	"name": "kF Extension",
-	"version": "0.5.1",
+	"version": "0.6.1",
 	"description": "Improvements for kirupaForum.",
 	
 	"icons": {
@@ -13,7 +13,8 @@
 		{
 			"matches": ["http://*.kirupa.com/forum/*"],
 			"css": ["kf.css"],
-			"js": ["lib/jquery-1.6.2.min.js", "kf.js"]
+			"js": ["lib/jquery-1.6.2.min.js", "kf.js", "lib/ace/ace.js", "lib/ace/mode-javascript.js",
+					"lib/ace/theme-textmate.js", "add-editors.js"]
 		}
 	]
 }

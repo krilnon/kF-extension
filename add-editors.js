@@ -1,15 +1,4 @@
 var ace
-var repeat = setInterval(check, 250)
-//check()
-
-// poll to  see if ace.js has loaded
-// I don't know if there's a JS event that explicitly notifies me of the same thing
-function check(){
-	if(window.ace){
-		clearInterval(repeat)
-		addEditors()
-	}	
-}
 
 function addEditors(){
 	ace = window.ace
