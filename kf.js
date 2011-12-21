@@ -26,12 +26,15 @@ function killAds(){
 	}
 }
 
+// setting: { mode:'javascript',theme:'textmate',gutter:'false',fontSize:'11px',softWrap:'off',showPrintMargin:'false',useSoftTabs:'false',showInvisibles:'false' }
 // code displayed in posts is replaced with an ACE editor
 function convertEditors(){
 	var first = $('.bbcode_code').first()
 	if(first){ // if there are any .bbcode_code elements at all, replace them
 		unsandbox('lib/jquery-1.6.2.min.js')
-		unsandbox('ace-inject.js')
+		unsandbox('lib/ace/ace.js')
+		unsandbox('lib/ace/mode-javascript.js')
+		unsandbox('lib/ace/theme-textmate.js')
 		unsandbox('add-editors.js')
 	}
 }

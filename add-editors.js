@@ -1,19 +1,18 @@
 var ace
-var repeat = setInterval(check, 50)
-check()
-var count = 0
+var repeat = setInterval(check, 250)
+//check()
 
-// poll to  see if ace.js has loaded from github
+// poll to  see if ace.js has loaded
 // I don't know if there's a JS event that explicitly notifies me of the same thing
 function check(){
-	if(window.__ace_shadowed__){
+	if(window.ace){
 		clearInterval(repeat)
 		addEditors()
 	}	
 }
 
 function addEditors(){
-	ace = window.__ace_shadowed__
+	ace = window.ace
 	ace.options = { 
 		mode:'javascript',
 		theme:'textmate',
@@ -24,6 +23,9 @@ function addEditors(){
 		useSoftTabs:'false',
 		showInvisibles:'false'
 	}
+	
+	window.count = 0
+	window.editors = []
 	
 	try {
 		$('.bbcode_code').each(addEditor)
@@ -37,6 +39,9 @@ function addEditor(i, elem){
 	var text = elem.textContent.split('☃ace☃').join('\n')
 	var w = elem.getBoundingClientRect().width
 	var h = elem.getBoundingClientRect().height
-	$(elem).replaceWith('<textarea id="ace-editor-' + count++ +'" class="ace-editor" style="width: ' + w + 'px; height: ' + h + 'px;">' + text + '</textarea>')
-	ace.transformTextarea($('#ace-editor-' + (count - 1))[0])
+	$(elem).replaceWith('<div><div id="ace-editor-' + (window.count++) +'" class="ace-editor" style="width: ' + w + 'px; height: ' + (h + 40) + 'px; position: relative;">' + text.trim() + '</div></div>')
+	var editor = ace.edit('ace-editor-' + (window.count - 1))
+	window.editors.push(editor)
+	var jsm = require("ace/mode/javascript").Mode
+	editor.getSession().setMode(new jsm())
 }
