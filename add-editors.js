@@ -28,7 +28,10 @@ function addEditor(i, elem){
 	var text = elem.textContent.split('☃ace☃').join('\n')
 	var w = elem.getBoundingClientRect().width
 	var h = elem.getBoundingClientRect().height
-	$(elem).replaceWith('<div><div id="ace-editor-' + (window.count++) +'" class="ace-editor" style="width: ' + w + 'px; height: ' + (h + 40) + 'px; position: relative;">' + text.trim() + '</div></div>')
+	var editElem = $('<div id="ace-editor-' + (window.count++) +'" class="ace-editor" style="width: ' + w + 'px; height: ' + (h + 40) + 'px; position: relative;" />').text(text.trim())
+	var wrapper = $('<div />')
+	wrapper.append(editElem)
+	$(elem).replaceWith(wrapper)
 	var editor = ace.edit('ace-editor-' + (window.count - 1))
 	window.editors.push(editor)
 	var jsm = require("ace/mode/javascript").Mode
